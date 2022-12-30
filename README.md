@@ -1,5 +1,6 @@
-#Game live by ElJORIKO
+Game live by ElJORIKO
 ===
+<pre><code>
 Usage: Game live [-dhr] [-a=<aliveCell>] [-c=<closeCell>] [-e=<emptyCell>]
                  [-H=<height>] [-o=<openCell>] [-p=<conf>] [-t=<timeOut>] 
                  [-w=<wight>]                                             
@@ -15,3 +16,4 @@ Game "live"
   -r, -random              Random place alive cell                        
   -t, -time=<timeOut>      TimeOut refresh field                          
   -w, -wight=<wight>       Wight field                                    
+  </pre></code>
