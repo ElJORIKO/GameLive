@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'maven-publish'
+    id 'java-library'
+}
+
+application {
+    mainClass = "ru.ElJORIKO.main.Main"
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+java{
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+    group 'ru.ElJORIKO'
+    version '0.0.4'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileClasspath {
+        resolutionStrategy.activateDependencyLocking()
+        resolutionStrategy.capabilitiesResolution.withCapability('io.netty:netty-all') {
+            selectHighestVersion()
+        }
+    }
+}
+
+
+dependencies {
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+shadowJar {
+    minimize()
+}
